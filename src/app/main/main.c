@@ -146,11 +146,11 @@ do_hup(void)
   } else {
     char *msg = NULL;
     log_notice(LD_GENERAL, "Not reloading config file: the controller told "
-               "us not to.");
+               "me not to. :)");
     /* Make stuff get rescanned, reloaded, etc. */
     if (set_options((or_options_t*)options, &msg) < 0) {
       if (!msg)
-        msg = tor_strdup("Unknown error");
+        msg = tor_strdup("Unknown error :(");
       log_warn(LD_GENERAL, "Unable to re-set previous options: %s", msg);
       tor_free(msg);
     }
@@ -222,7 +222,7 @@ process_signal(int sig)
       break;
     case SIGINT:
       if (!server_mode(get_options())) { /* do it now */
-        log_notice(LD_GENERAL,"Interrupt: exiting cleanly.");
+        log_notice(LD_GENERAL,"Interrupt: shutting down cleanly.");
         tor_shutdown_event_loop_and_exit(0);
         return;
       }
@@ -417,7 +417,7 @@ dumpstats(int severity)
         (int) (get_bytes_written()/elapsed));
   }
 
-  tor_log(severity, LD_NET, "--------------- Dumping memory information:");
+  tor_log(severity, LD_NET, "--------------- Storing memory information:");
   dumpmemusage(severity);
 
   rep_hist_dump_stats(now,severity);
@@ -571,7 +571,7 @@ tor_init(int argc, char *argv[])
   {
     const char *version = get_version();
 
-    log_notice(LD_GENERAL, "Tor %s running on %s with Libevent %s, "
+    log_notice(LD_GENERAL, "Tor %s running on %s (update your OS!) with Libevent %s, "
                "%s %s, Zlib %s, Liblzma %s, Libzstd %s and %s %s as libc.",
                version,
                get_uname(),
