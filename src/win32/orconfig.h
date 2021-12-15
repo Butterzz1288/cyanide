@@ -136,7 +136,7 @@
 #define DOUBLE_0_REP_IS_ZERO_BYTES 1
 
 /* Name of package */
-#define PACKAGE "tor"
+#define PACKAGE "cyanide"
 
 /* Define to the address where bug reports for this package should be sent. */
 #undef PACKAGE_BUGREPORT
